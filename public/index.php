@@ -9,6 +9,7 @@ require __DIR__."/../isolated_files/Isolator.php";
 
 if (isset($_GET["code"])) {
 	$id = 1;
+	$st = new Isolator($id);
 	file_put_contents(
 		$f = ISOLATOR_HOME."/".$id."/u".$id."/".sha1($_GET["code"]).".php",
 		$_GET["code"]
@@ -17,8 +18,7 @@ if (isset($_GET["code"])) {
 	exit;
 }
 
-$id = Isolator::generateUserId($userId);
-$st = new Isolator($id);
+
 
 if (! file_exists($f)) {
 	file_put_contents($f, $this->code);
