@@ -11,7 +11,7 @@ if (isset($_POST["code"])) {
 	$id = 1;
 	$st = new Isolator($id);
 	file_put_contents(
-		$f = ISOLATOR_HOME."/".$id."/u".$id."/".($fn = sha1($_GET["code"]).".php"),
+		$f = ISOLATOR_HOME."/".$id."/u".$id."/".($fn = sha1($_POST["code"]).".php"),
 		$_GET["code"]
 	);
 } else {
