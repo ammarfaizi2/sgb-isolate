@@ -25,7 +25,7 @@ final class Isolator
 	/**
 	 * @var string
 	 */
-	private $root = "www-data";
+	private $user = "root";
 
 	/**
 	 * @var string

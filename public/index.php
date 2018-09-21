@@ -1,5 +1,5 @@
 <?php
-
+ini_set("display_errors", 1);
 define("ISOLATOR", realpath(__DIR__."/../isolator_dir"));
 define("ISOLATOR_ETC", ISOLATOR."/etc");
 define("ISOLATOR_TMP", ISOLATOR."/tmp");
