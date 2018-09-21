@@ -38,9 +38,9 @@ if (isset($_POST["code"])) {
 </head>
 <body>
 <?php
-	print "<h3>ISOLATE OUT:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getIsolateOut())."</pre></div>";
-	print "<br/><h3>STDOUT:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getStdout())."</pre></div>";
-	print "<br/><h3>STDERR:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getStderr())."</pre></div>";
+	print "<h3>ISOLATE OUT:</h3><div class=\"cx\"><pre>".htmlspecialchars($st->getIsolateOut())."</pre></div>";
+	print "<br/><h3>STDOUT:</h3><div class=\"cx\"><pre>".htmlspecialchars($st->getStdout())."</pre></div>";
+	print "<br/><h3>STDERR:</h3><div class=\"cx\"><pre>".htmlspecialchars($st->getStderr())."</pre></div>";
 	unset($st);
 ?>
 </body>
