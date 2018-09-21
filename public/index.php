@@ -14,27 +14,26 @@ if (isset($_POST["code"])) {
 		$f = ISOLATOR_HOME."/".$id."/u".$id."/".($fn = sha1($_POST["code"]).".php"),
 		$_GET["code"]
 	);
-} else {
+	if (! file_exists($f)) {
+		file_put_contents($f, $this->code);
+	}
+
+	$st->setMemoryLimit(1024 * 512); // max memory usage per exec 512 MB
+	$st->setMaxProcesses(5); // max child processes per exec 5 processes
+	$st->setMaxWallTime(10); // max walltime per exec 10 seconds
+	$st->setMaxExecutionTime(5); // max exec time per exec 5 seconds
+	$st->setExtraTime(5); // max extratime per exec 5 seconds
+
+
+	$st->run("/usr/bin/php7.1 /home/u".$id."/".$fn);
+
+	print "ISOLATE OUT:<br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
+	print "<br/>STDOUT:<br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
+	print "<br/>STDERR:<br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
+	unset($st);
 	exit;
 }
 
-if (! file_exists($f)) {
-	file_put_contents($f, $this->code);
-}
-
-$st->setMemoryLimit(1024 * 512); // max memory usage per exec 512 MB
-$st->setMaxProcesses(5); // max child processes per exec 5 processes
-$st->setMaxWallTime(10); // max walltime per exec 10 seconds
-$st->setMaxExecutionTime(5); // max exec time per exec 5 seconds
-$st->setExtraTime(5); // max extratime per exec 5 seconds
-
-
-$st->run("/usr/bin/php7.1 /home/u".$id."/".$fn);
-
-print "ISOLATE OUT:<br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
-print "<br/>STDOUT:<br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
-print "<br/>STDERR:<br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
-unset($st);
 ?><!DOCTYPE html>
 <html>
 <head>
