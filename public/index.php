@@ -11,7 +11,7 @@ if (isset($_GET["code"])) {
 	$id = 1;
 	$st = new Isolator($id);
 	file_put_contents(
-		$f = ISOLATOR_HOME."/".$id."/u".$id."/".sha1($_GET["code"]).".php",
+		$f = ISOLATOR_HOME."/".$id."/u".$id."/".($fn = sha1($_GET["code"]).".php"),
 		$_GET["code"]
 	);
 } else {
@@ -30,7 +30,7 @@ $st->setMaxWallTime(10);
 $st->setMaxExecutionTime(5);
 $st->setExtraTime(5);
 
-$st->run("/usr/bin/php7.1 /home/u".$id."/".$n);
+$st->run("/usr/bin/php7.1 /home/u".$id."/".$fn);
 
 
 print "STDOUT:<br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
