@@ -15,9 +15,9 @@ if (isset($_POST["code"])) {
 		$_POST["code"]
 	);
 
-	$st->setMemoryLimit(1024 * 512); // max memory usage per exec 512 MB
-	$st->setMaxProcesses(5); // max child processes per exec 5 processes
-	$st->setMaxWallTime(10); // max walltime per exec 10 seconds
+	$st->setMemoryLimit(1024 * 128); // max memory usage per exec 128 MB
+	$st->setMaxProcesses(3); // max child processes per exec 3 processes
+	$st->setMaxWallTime(5); // max walltime per exec 5 seconds
 	$st->setMaxExecutionTime(5); // max exec time per exec 5 seconds
 	$st->setExtraTime(5); // max extratime per exec 5 seconds
 
@@ -39,10 +39,12 @@ if (isset($_POST["code"])) {
 <body>
 	<center>
 	<h3>Enter your PHP code here!</h3>
-	<form action="?action=1" method="POST">
-		<textarea name="code"><?php print htmlspecialchars("<?php echo \"Hello SGB!\";"); ?></textarea>
-		<br/><input type="submit" name="submit" value="Submit"/>
-	</form>
+	<div style="border: 1px solid #000;">
+		<form action="?action=1" method="POST">
+			<textarea style="width: 425px; height: 188px; background: transparent none repeat scroll 0% 0% !important; z-index: auto; position: relative; line-height: 14px; font-size: 12px; transition: none 0s ease 0s;" name="code"><?php print htmlspecialchars(base64_decode("PD9waHAKcHJpbnQgCiJDdXJyZW50IFdvcmtpbmcgRGlyZWN0b3J5OiIuCnNoZWxsX2V4ZWMoInB3ZCIpLiJcbiIuCiJMaXN0IEZpbGVzOlxuIi4Kc2hlbGxfZXhlYygibHMgLWFsIikuIlxuIi4KIlVzZXI6ICIuCnNoZWxsX2V4ZWMoIndob2FtaSIpLiJcbiIuCiJQSFAgVmVyc2lvbjogIi5QSFBfVkVSU0lPTjsK")); ?></textarea>
+			<br/><input type="submit" name="submit" value="Submit"/>
+		</form>
+	</div>
 	</center>
 </body>
 </html>
