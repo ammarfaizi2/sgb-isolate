@@ -24,9 +24,9 @@ if (isset($_POST["code"])) {
 
 	$st->run("/usr/bin/php7.1 /home/u".$id."/".$fn);
 
-	print "ISOLATE OUT:<br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
-	print "<br/>STDOUT:<br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
-	print "<br/>STDERR:<br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
+	print "<h4>ISOLATE OUT:</h4><br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
+	print "<br/><h4>STDOUT:</h4><br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
+	print "<br/><h4>STDERR:</h4><br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
 	unset($st);
 	exit;
 }
