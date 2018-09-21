@@ -15,7 +15,7 @@ if (isset($_POST["code"])) {
 		$_POST["code"]
 	);
 
-	$st->setMemoryLimit(1024 * 128); // max memory usage per exec 128 MB
+	$st->setMemoryLimit(1024 * 512); // max memory usage per exec 512 MB
 	$st->setMaxProcesses(3); // max child processes per exec 3 processes
 	$st->setMaxWallTime(5); // max walltime per exec 5 seconds
 	$st->setMaxExecutionTime(5); // max exec time per exec 5 seconds
