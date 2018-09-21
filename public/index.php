@@ -12,11 +12,8 @@ if (isset($_POST["code"])) {
 	$st = new Isolator($id);
 	file_put_contents(
 		$f = ISOLATOR_HOME."/".$id."/u".$id."/".($fn = sha1($_POST["code"]).".php"),
-		$_GET["code"]
+		$_POST["code"]
 	);
-	if (! file_exists($f)) {
-		file_put_contents($f, $this->code);
-	}
 
 	$st->setMemoryLimit(1024 * 512); // max memory usage per exec 512 MB
 	$st->setMaxProcesses(5); // max child processes per exec 5 processes
