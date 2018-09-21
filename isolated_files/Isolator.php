@@ -25,7 +25,7 @@ final class Isolator
 	/**
 	 * @var string
 	 */
-	private $user = "root";
+	private $user = "admin";
 
 	/**
 	 * @var string
