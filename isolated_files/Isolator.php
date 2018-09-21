@@ -83,6 +83,11 @@ final class Isolator
 	private $etcPath;
 
 	/**
+	 * @var string
+	 */
+	private $isolateOut = "";
+
+	/**
 	 * @var bool
 	 */
 	public $sharenet = false;
@@ -299,9 +304,7 @@ final class Isolator
 			"--run -- /bin/sh -c \"".str_replace(["\"", "\$"], ["\\\"", "\\\$"], $cmd)."\"".
 			" 2>&1";
 
-		print "\n\n".$this->cmd."\n\n";
-
-		shell_exec($this->cmd);
+		$this->isolateOut = shell_exec($this->cmd);
 		$this->isExecuted = true;
 	}
 
@@ -401,6 +404,11 @@ final class Isolator
 		}
 
 		return file_get_contents($this->boxDir."/stdout");
+	}
+
+	public function getIsolateOut(): string
+	{
+		return $this->isolateOut;
 	}
 
 	/**

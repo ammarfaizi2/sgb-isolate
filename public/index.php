@@ -33,6 +33,7 @@ $st->setExtraTime(5);
 $st->run("/usr/bin/php7.1 /home/u".$id."/".$fn);
 
 
-print "STDOUT:<br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
+print "ISOLATE OUT:<br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
+print "<br/>STDOUT:<br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
 print "<br/>STDERR:<br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
 unset($st);
