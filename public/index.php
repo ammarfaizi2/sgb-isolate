@@ -23,12 +23,26 @@ if (isset($_POST["code"])) {
 
 
 	$st->run("/usr/bin/php7.1 /home/u".$id."/".$fn);
-
-	print "<h4>ISOLATE OUT:</h4><br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
-	print "<br/><h4>STDOUT:</h4><br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
-	print "<br/><h4>STDERR:</h4><br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
+?><!DOCTYPE html>
+<html>
+<head>
+	<title><?php print $fn; ?></title>
+	<style type="text/css">
+		* {
+			font-family: Arial;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+<?php
+	print "<h3>ISOLATE OUT:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getIsolateOut())."</pre></div>";
+	print "<br/><h3>STDOUT:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getStdout())."</pre></div>";
+	print "<br/><h3>STDERR:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getStderr())."</pre></div>";
 	unset($st);
-	exit;
+?>
+</body>
+</html><?php exit;
 }
 
 ?><!DOCTYPE html>
