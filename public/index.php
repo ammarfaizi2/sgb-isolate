@@ -30,15 +30,15 @@ if (isset($_POST["code"])) {
 	<style type="text/css">
 		* {
 			font-family: Arial;
-			border: 1px solid #000;
+			border: 1px solid;
 		}
 	</style>
 </head>
 <body>
 <?php
-	print "<h3>ISOLATE OUT:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getIsolateOut())."</pre></div>";
-	print "<br/><h3>STDOUT:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getStdout())."</pre></div>";
-	print "<br/><h3>STDERR:</h3><br/> <div class=\"cx\"><pre>".htmlspecialchars($st->getStderr())."</pre></div>";
+	print "<h3>ISOLATE OUT:</h3><br/> <pre>".htmlspecialchars($st->getIsolateOut())."</pre>";
+	print "<br/><h3>STDOUT:</h3><br/> <pre>".htmlspecialchars($st->getStdout())."</pre>";
+	print "<br/><h3>STDERR:</h3><br/> <pre>".htmlspecialchars($st->getStderr())."</pre>";
 	unset($st);
 ?>
 </body>
