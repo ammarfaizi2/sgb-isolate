@@ -43,8 +43,8 @@ if (isset($_POST["code"])) {
 	<center>
 	<h3>Enter your PHP code here!</h3>
 	<form action="?action=1" method="POST">
-		<textarea name="code"><?php  print htmlspecialchars("<?php echo \"Hello SGB!\";"); ?></textarea>
-		<input type="submit" name="submit" value="Submit"/>
+		<textarea name="code"><?php print htmlspecialchars("<?php echo \"Hello SGB!\";"); ?></textarea>
+		<br/><input type="submit" name="submit" value="Submit"/>
 	</form>
 	</center>
 </body>
